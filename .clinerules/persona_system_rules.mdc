@@ -1,0 +1,143 @@
+---
+description: Regras personalizadas para integrar o sistema Gerenciador de Projetos e Personas com o editor Cline, garantindo aderência aos protocolos de gerenciamento de personas, automação e rastreamento de projetos.
+globs: 
+alwaysApply: true
+---
+
+# Regras do Cline para o Sistema Gerenciador de Projetos e Personas
+
+Estas regras fornecem instruções personalizadas para o editor Cline se integrar perfeitamente ao sistema Gerenciador de Projetos e Personas. O objetivo é garantir que o editor respeite a rotação de personas, os mecanismos de relatórios, o gerenciamento de tarefas e a estrutura geral do projeto conforme definido no sistema.
+
+## Visão Geral do Sistema de Personas
+
+O Gerenciador de Projetos e Personas é um sistema abrangente projetado para gerenciar projetos e personas por meio de automação e fluxos de trabalho estruturados. Ele inclui:
+
+- **Gerenciamento de Personas**: Define múltiplas personas com papéis e prioridades específicas (P0, P1, P2) para garantir perspectivas diversas no desenvolvimento de projetos.
+- **Scripts de Automação**: Scripts em Python para monitoramento, rotação de personas, geração de relatórios e gerenciamento de tarefas.
+- **Rastreamento de Projetos**: Ferramentas para adicionar, atualizar e monitorar tarefas com priorização clara e rastreamento de status.
+- **Documentação e Relatórios**: Documentação detalhada e geração automatizada de relatórios para transparência e acompanhamento do progresso.
+
+## Regras para Integração com o Editor Cline
+
+### 1. Protocolo de Conscientização e Rotação de Personas
+
+- **Verificar Personas Atuais**: No início de cada interação ou sessão, execute o script de monitoramento para identificar as personas ativas e determinar se a rotação é necessária:
+  ```bash
+  python scripts/monitor.py
+  ```
+  Interprete a saída para entender quais personas estão atualmente ativas e adote suas perspectivas para as respostas.
+
+- **Rotacionar Personas Quando Necessário**: Se o script de monitoramento indicar a necessidade de rotação de personas (com base no intervalo configurado em `scripts/personas/config.json`), execute o script de rotação antes de prosseguir:
+  ```bash
+  python scripts/rotate_personas.py
+  ```
+  Garanta que as respostas estejam alinhadas com os papéis e prioridades das personas recém-ativadas.
+
+- **Envolver Personas-Chave**: Sempre considere envolver personas de alta prioridade (P0), como o Gerente de Produto (por exemplo, Carla), em decisões ou atualizações significativas para manter a coerência do projeto.
+
+### 2. Relatórios e Atualizações de Progresso
+
+- **Verificar Necessidades de Relatórios**: Verifique periodicamente se os relatórios de progresso estão vencidos executando o script de monitoramento (sugerido a cada 15-20 minutos de interação):
+  ```bash
+  python scripts/monitor.py
+  ```
+  Se os relatórios forem necessários, gere-os usando:
+  ```bash
+  python scripts/generate_report.py
+  ```
+
+- **Atualizar Relatórios para Personas Ativas**: Após progresso significativo ou conclusão de tarefas, atualize os relatórios para as personas ativas com detalhes relevantes usando:
+  ```bash
+  python scripts/update_report.py <nome_persona> <campo> "<conteúdo>"
+  ```
+  Os campos incluem `progress`, `next_steps`, `blockers` e `notes`. Exemplo:
+  ```bash
+  python scripts/update_report.py Carla progress "Concluí a integração das ferramentas de gerenciamento de tarefas."
+  ```
+
+- **Revisar Relatórios Existentes**: Antes de gerar novos relatórios, revise os existentes em `scripts/reports/` para manter a continuidade e evitar informações redundantes.
+
+### 3. Gerenciamento de Tarefas e Priorização
+
+- **Aderir às Prioridades de Tarefas**: Ao abordar tarefas ou planejar próximos passos, consulte as prioridades definidas em `ROADMAP_TAREFAS.md` e as atribuições de tarefas em `scripts/tasks/tasks.json`. Foque primeiro nas tarefas P0 (críticas), seguidas por P1 (importantes) e P2 (desejáveis).
+
+- **Gerenciar Tarefas com Scripts**: Use o script de gerenciamento de tarefas para adicionar, listar, atualizar ou editar tarefas conforme necessário:
+  - Adicionar uma nova tarefa:
+    ```bash
+    python scripts/task_manager.py add "Desenvolver nova funcionalidade" P0 "Carla"
+    ```
+  - Listar tarefas com filtros:
+    ```bash
+    python scripts/task_manager.py list --status "Pendente" --priority "P0"
+    ```
+  - Atualizar status da tarefa:
+    ```bash
+    python scripts/task_manager.py update 1 "Em Progresso"
+    ```
+  - Editar detalhes da tarefa:
+    ```bash
+    python scripts/task_manager.py edit 1 --description "Descrição atualizada da funcionalidade" --priority "P1"
+    ```
+
+- **Rastrear Status do Projeto**: Verifique regularmente o status geral do projeto para informar a tomada de decisão e as respostas:
+  ```bash
+  python scripts/project_status.py
+  ```
+
+### 4. Documentação e Orientação ao Usuário
+
+- **Consultar Documentação**: Ao fornecer orientação ou instruções, baseie as respostas na documentação mais recente em `docs/` (por exemplo, `INSTALACAO.md`, `USO.md`, `ROADMAP_TAREFAS.md`) para garantir precisão.
+
+- **Atualizar Documentação se Necessário**: Se a documentação estiver desatualizada ou incompleta, sugira atualizações ou use o script de finalização de documentação para gerar novo conteúdo:
+  ```bash
+  python scripts/documentation_finalizer.py
+  ```
+
+### 5. Funcionalidades Avançadas e Solução de Problemas
+
+- **Aproveitar Ferramentas Avançadas**: Utilize scripts avançados para necessidades específicas:
+  - Integração com Git para controle de versão de relatórios:
+    ```bash
+    python scripts/git_integration.py
+    ```
+  - Sistema de backup para segurança de dados:
+    ```bash
+    python scripts/backup_system.py
+    ```
+  - Diagnósticos para solução de problemas:
+    ```bash
+    python scripts/diagnostics.py
+    ```
+  - Notificações para alertas sobre rotação ou necessidades de relatórios:
+    ```bash
+    python scripts/notify.py
+    ```
+  - Testes de usabilidade para melhoria do sistema:
+    ```bash
+    python scripts/usability_testing.py
+    ```
+
+- **Lidar com Erros de Forma Graciosa**: Se os scripts falharem na execução, verifique problemas comuns como permissões de arquivo ou configuração do ambiente Python. Forneça mensagens de erro claras e sugira executar o script de diagnóstico para análise mais aprofundada.
+
+### 6. Lançamento e Implantação
+
+- **Preparar para Lançamento**: Quando o projeto atingir um estado estável ou marco, use o script de publicação de lançamento para finalizar a versão, gerar notas de lançamento e atualizar a documentação:
+  ```bash
+  python scripts/release_publisher.py [número_versão]
+  ```
+  Se nenhum número de versão for fornecido, o script incrementará automaticamente a versão de patch.
+
+- **Comunicar Lançamentos**: Após gerar as notas de lançamento, garanta que elas sejam compartilhadas com os stakeholders referenciando sua localização em `docs/releases/`.
+
+### 7. Monitoramento Contínuo e Ciclo de Feedback
+
+- **Verificações Periódicas**: Execute novamente o script de monitoramento a cada 15-20 minutos ou após ações significativas para garantir alinhamento com o estado do sistema de personas:
+  ```bash
+  python scripts/monitor.py
+  ```
+
+- **Incorporar Feedback do Usuário**: Após a implantação ou conclusão de tarefas, monitore o feedback do usuário para identificar áreas de melhoria. Atualize tarefas ou documentação conforme necessário usando os scripts relevantes.
+
+## Conclusão
+
+Seguindo estas regras, o editor Cline operará em harmonia com o sistema Gerenciador de Projetos e Personas, respeitando sua estrutura para gerenciamento de personas, priorização de tarefas e fluxos de trabalho automatizados. Esta integração garante que as interações sejam contextualmente relevantes para as personas ativas, o progresso seja rastreado sistematicamente e os objetivos do projeto sejam alcançados de forma eficiente. Consulte regularmente a documentação e os scripts do sistema para atualizações ou mudanças nestes protocolos.

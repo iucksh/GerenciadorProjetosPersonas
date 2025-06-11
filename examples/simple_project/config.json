@@ -1,0 +1,31 @@
+{
+  "personas": [
+    {
+      "name": "Alice",
+      "role": "Gerente de Produto",
+      "priority": "P0",
+      "description": "Responsável por definir a visão do produto, priorizar tarefas e coordenar a equipe."
+    },
+    {
+      "name": "Bob",
+      "role": "Desenvolvedor Frontend",
+      "priority": "P1",
+      "description": "Focado no desenvolvimento da interface do usuário e experiência do cliente."
+    },
+    {
+      "name": "Carol",
+      "role": "Desenvolvedor Backend",
+      "priority": "P1",
+      "description": "Responsável pela lógica do servidor, banco de dados e integrações de API."
+    },
+    {
+      "name": "David",
+      "role": "Engenheiro de QA",
+      "priority": "P2",
+      "description": "Garante a qualidade do software através de testes manuais e automatizados."
+    }
+  ],
+  "rotation_interval": 900,
+  "report_interval": 1800,
+  "max_active_personas": 2
+}

@@ -1,0 +1,79 @@
+{
+  "personas": [
+    {
+      "name": "Carla",
+      "role": "Gerente de Produto",
+      "priority": "P0",
+      "description": "Responsável pela visão geral do projeto, priorização de tarefas e coordenação entre equipes."
+    },
+    {
+      "name": "Ana",
+      "role": "Arquiteta de Blockchain",
+      "priority": "P0",
+      "description": "Define a arquitetura do sistema blockchain e toma decisões técnicas fundamentais."
+    },
+    {
+      "name": "Rafael",
+      "role": "Especialista em Frontend",
+      "priority": "P0",
+      "description": "Focado no desenvolvimento da interface do usuário e experiência do cliente."
+    },
+    {
+      "name": "Lucia",
+      "role": "Engenheira de Backend",
+      "priority": "P0",
+      "description": "Responsável pela lógica do servidor, banco de dados e integrações."
+    },
+    {
+      "name": "Pedro",
+      "role": "Engenheiro de Segurança",
+      "priority": "P1",
+      "description": "Garante a segurança do sistema e proteção contra vulnerabilidades."
+    },
+    {
+      "name": "Gustavo",
+      "role": "Especialista em DeFi",
+      "priority": "P2",
+      "description": "Especializado em finanças descentralizadas e economia de tokens."
+    },
+    {
+      "name": "Marina",
+      "role": "Legal e Conformidade",
+      "priority": "P2",
+      "description": "Responsável por questões legais e conformidade regulatória."
+    },
+    {
+      "name": "Luiz",
+      "role": "Engenheiro de DevOps",
+      "priority": "P1",
+      "description": "Gerencia infraestrutura, CI/CD e operações de deployment."
+    },
+    {
+      "name": "Miguel",
+      "role": "Cientista de Dados",
+      "priority": "P2",
+      "description": "Analisa dados e fornece insights para decisões baseadas em dados."
+    },
+    {
+      "name": "Julia",
+      "role": "Engenheira de QA",
+      "priority": "P1",
+      "description": "Responsável por testes e garantia de qualidade do software."
+    },
+    {
+      "name": "Felipe",
+      "role": "Hacker de Automação",
+      "priority": "P1",
+      "description": "Cria scripts e ferramentas para automatizar processos repetitivos."
+    },
+    {
+      "name": "Alex",
+      "role": "Arquiteto Web3 Segurança",
+      "priority": "P0",
+      "description": "Especialista em arquitetura de software Web3, segurança cibernética e auditoria de código, com foco em prevenir falhas e mitigar riscos."
+    }
+  ],
+  "rotation_interval": 900,
+  "report_interval": 1800,
+  "notes": "Este arquivo foi atualizado para refletir as personas definidas no diretório 'prompts/personas'. Os intervalos de rotação (em segundos) e geração de relatórios podem ser ajustados aqui."
+}

@@ -1,0 +1,46 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "description": "Definir requisitos do produto",
+      "priority": "P0",
+      "status": "Concluída",
+      "assignee": "Alice"
+    },
+    {
+      "id": 2,
+      "description": "Prototipar interface do usuário",
+      "priority": "P1",
+      "status": "Em Progresso",
+      "assignee": "Bob"
+    },
+    {
+      "id": 3,
+      "description": "Configurar banco de dados",
+      "priority": "P1",
+      "status": "Pendente",
+      "assignee": "Carol"
+    },
+    {
+      "id": 4,
+      "description": "Escrever testes de unidade",
+      "priority": "P2",
+      "status": "Pendente",
+      "assignee": "David"
+    },
+    {
+      "id": 5,
+      "description": "Revisar experiência do usuário",
+      "priority": "P1",
+      "status": "Pendente",
+      "assignee": "Bob"
+    },
+    {
+      "id": 6,
+      "description": "Planejar estratégia de lançamento",
+      "priority": "P0",
+      "status": "Pendente",
+      "assignee": "Alice"
+    }
+  ]
+}
