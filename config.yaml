@@ -1,0 +1,7 @@
+# Configurações gerais do Gerenciador de Projetos e Personas
+# Os scripts podem ler este arquivo para obter parâmetros padrão.
+
+rotation_interval: 900        # segundos (15 min)
+report_interval: 1800         # segundos (30 min)
+logging_level: INFO           # DEBUG, INFO, WARNING, ERROR
+reports_dir: scripts/reports  # caminho relativo ao projeto

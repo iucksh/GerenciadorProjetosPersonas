@@ -1,0 +1,35 @@
+---
+# WindSurf Integration Rules for Gerenciador de Projetos e Personas
+version: 0.1
+description: Regras para orquestrar a execução de scripts e providenciar contexto seguro aos agentes WindSurf.
+---
+
+## Scripts Essenciais
+
+- **scripts/monitor.py**  
+  Executar a cada 10 minutos ou antes de decisões de alto impacto.
+
+- **scripts/rotate_personas.py**  
+  Executar somente se `monitor.py` indicar que a rotação é necessária.
+
+- **scripts/generate_report.py**  
+  Executar após rotação ou sempre que houver progresso significativo registrado por `task_manager.py`.
+
+## Conformidade de Tarefas
+
+- Respeitar as prioridades P0 > P1 > P2 definidas em `docs/ROADMAP_TAREFAS.md`.
+- Sempre utilizar `task_manager.py` (e não editar JSONs manualmente) para criar ou atualizar tarefas.
+
+## Limites de Segurança
+
+- É proibido executar comandos que escrevam fora do diretório do projeto.
+- Em ambientes Windows, scripts `.sh` estão bloqueados; use equivalentes `.py`.
+
+## Observabilidade
+
+- Enviar logs estruturados ao painel WindSurf com tag `GPP`.
+- Erros críticos devem disparar alertas imediatos (canal `#alerts`).
+
+## Convenções de Persona
+
+- Prefixar mensagens geradas por agentes com o nome da persona ativa, ex.: `[Carla-PM]`.
