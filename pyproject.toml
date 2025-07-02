@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gerenciador-projetos-personas"
+version = "0.1.0"
+description = "Gerenciador de Projetos e Personas – Ferramentas de automação, relatórios e integração WindSurf/Gemini."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{name = "Equipe GPP"}]
+
+# Dependências essenciais (já listadas em requirements.txt)
+dependencies = [
+    "typer>=0.9",
+    "rich>=13",
+    "pyyaml>=6",
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.22",
+]
+
+[tool.setuptools.packages.find]
+include = ["scripts", "scripts.*"]
+
+[project.scripts]
+# Permite executar `gpp` no terminal depois de `pip install -e .`
+gpp = "scripts.cli:app"

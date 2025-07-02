@@ -12,6 +12,31 @@ O **Gerenciador de Projetos e Personas** é uma ferramenta que combina automaç�
 
 Este guia cobre os passos básicos para começar a usar o sistema. Funcionalidades mais avançadas serão adicionadas à medida que o projeto evoluir.
 
+## Passo 0: Instalação Rápida e CLI
+
+Instale o projeto em modo editável – isto disponibiliza o comando `gpp`:
+
+```bash
+python -m pip install -e .
+```
+
+Verifique a instalação:
+```bash
+gpp --help
+```
+
+### Subcomando `ai`
+Para utilizar recursos de IA (Gemini), instale o Gemini CLI:
+```bash
+npm install -g @google/gemini-cli
+```
+Depois:
+```bash
+gpp ai "Resuma o roadmap" -f docs/ROADMAP_TAREFAS.md
+```
+
+---
+
 ## Passo 1: Configuração Inicial
 
 Antes de usar o sistema, certifique-se de que ele está configurado corretamente. Siga o guia de instalação em `INSTALACAO.md` para preparar o ambiente. Os passos principais incluem:
